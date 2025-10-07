@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(rgba(236, 24, 24, 0.84), white);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.titulo {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    color: #333;
+}
+
+.titulo-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container pai para alinhar lado a lado */
+.container-pai {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Estilo comum às divs */
+.container-verde,
+.container-vermelho {
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    text-align: center;
+}
+
+/* Diferenciação visual entre os containers */
+.container-verde {
+    border-top: 8px solid #2ecc71;
+}
+
+.container-vermelho {
+    border-top: 8px solid #e74c3c;
+}
+
+/* Estilização dos cabeçalhos dos containers */
+.container-verde h2,
+.container-vermelho h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.ligar {
+    background-color: #27ae60;
+    border: 1px solid #1e8449;
+}
+
+.desligar {
+    background-color: #c0392b;
+    border: 1px solid #922b21;
+}
+
+/* Efeito ao passar o mouse */
+.ligar:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.desligar:hover {
+    background-color: #a93226;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de clique */
+.ligar:active,
+.desligar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estados de foco para acessibilidade */
+.ligar:focus,
+.desligar:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container-pai {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .container-verde,
+    .container-vermelho {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Estilo para texto descritivo */
+.descricao {
+    color: #666;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+/* Estados dos botões quando desabilitados */
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    background-color: #95a5a6;
+    transform: none;
+    box-shadow: none;
+}
