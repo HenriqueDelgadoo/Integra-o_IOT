@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de LEDs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .led-control {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .led-control h2 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .on {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .off {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .on:hover {
+      background-color: #45a049;
+    }
+
+    .off:hover {
+      background-color: #e53935;
+    }
+
+    #status {
+      margin-top: 30px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Controle de LEDs via Web</h1>
+
+  <div class="led-control">
+    <h2>LED 1</h2>
+    <button class="on" onclick="sendCommand(1, 'on')">Ligar</button>
+    <button class="off" onclick="sendCommand(1, 'off')">Desligar</button>
+  </div>
+
+  <div class="led-control">
+    <h2>LED 2</h2>
+    <button class="on" onclick="sendCommand(2, 'on')">Ligar</button>
+    <button class="off" onclick="sendCommand(2, 'off')">Desligar</button>
+  </div>
+
+  <div id="status">Aguardando comando...</div>
+
+  <script>
+    function sendCommand(led, action) {
+      fetch(`/control/${led}/${action}`)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('status').innerText = data;
+        })
+        .catch(error => {
+          document.getElementById('status').innerText = 'Erro ao enviar comando.';
+          console.error('Erro:', error);
+        });
+    }
+  </script>
+</body>
+</html>

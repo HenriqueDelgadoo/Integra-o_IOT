@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(236, 24, 24, 0.84), white);
+    background:linear-gradient(rgba(236, 24, 24, 0.84), black);
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -10,7 +10,8 @@ body {
     text-align: center;
     padding: 10px;
     margin: 10px;
-    color: #333;
+    color:white
+    
 }
 
 .titulo-container {
